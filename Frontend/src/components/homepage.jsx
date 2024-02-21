@@ -79,7 +79,7 @@ function Homepage() {
                   placeholder="Artical,Book,and More"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className='p-2 w-[50%]  border-2  text-black  ' />
+                  className='p-2 w-[50%]    text-black  ' />
                 <select className='p-2 w-90  bg-gray-600 py-2 text-white border-2  ' id="searchType">
                   <option className='' value="name">Title</option>
                   <option value="category">Author</option>
