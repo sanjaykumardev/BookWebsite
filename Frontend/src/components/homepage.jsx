@@ -1,6 +1,6 @@
 // import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
-import { useState ,useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const mockBooks = [
@@ -37,22 +37,22 @@ function Homepage() {
 
 
 
-    // Function to send mockBooks data to the backend
-    const sendMockBooksToBackend = () => {
-      axios.post('/books', { books: mockBooks }) // Send a POST request to backend endpoint with mockBooks data in the request body
-        .then(response => {
-          console.log('MockBooks sent to backend:', response.data);
-        })
-        .catch(error => {
-          console.error('Error sending mockBooks to backend:', error);
-        });
-    };
-  
-    // Call the function to send mockBooks data when the component mounts
-    useEffect(() => {
-      sendMockBooksToBackend();
-    }, []);
-  
+  // Function to send mockBooks data to the backend
+  const sendMockBooksToBackend = () => {
+    axios.post('/books', { books: mockBooks }) // Send a POST request to backend endpoint with mockBooks data in the request body
+      .then(response => {
+        console.log('MockBooks sent to backend:', response.data);
+      })
+      .catch(error => {
+        console.error('Error sending mockBooks to backend:', error);
+      });
+  };
+
+  // Call the function to send mockBooks data when the component mounts
+  useEffect(() => {
+    sendMockBooksToBackend();
+  }, []);
+
   return (
     <div>
       <Navbar />
@@ -70,7 +70,7 @@ function Homepage() {
             <div className='md:ml-10 md:mt-10'>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-              <h2 className="p-2 md:ml-10 font-bold md:text-3xl text-3xl text-White md:mt-5  md:text-center">
+              <h2 className="p-2  font-bold md:text-3xl text-3xl text-White md:mt-5  md:text-center">
                 FIND YOUR BOOK CHOICE
               </h2>
               <div className='md:mt-3 '>
@@ -91,16 +91,18 @@ function Homepage() {
             </div>
             <div className="md:max-h-[60vh] text-black overflow-y-auto">
               {searchResults.map((result, index) => (
-                <div key={index} className="p-2 border-b border-gray-300">
-                  <p>{result.title}</p>
-                  <p>{result.author}</p>
-                  <p>{result.subject}</p>
-                  <p>{result.publishDate}</p>
+                <div key={index} className="p-2 border-b bg-gray-300  border-gray-300">
+                  <p>{result.title}
+                    <p>{result.author}</p>
+                    <p>{result.subject}</p>
+                    <p>{result.publishDate}</p>
+                  </p>
+
                 </div>
               ))}
             </div>
             <div className="flex  p-10">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+              <p> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
             </div>
           </div>
         </div>

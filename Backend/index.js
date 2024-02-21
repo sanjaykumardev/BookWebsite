@@ -17,10 +17,10 @@ app.use(cors({ origin: ["http://localhost:5173"] }));
 
 // connection for database
 const connection = mysql.createConnection({
-  user: "root",
-  host: "localhost",
-  password: "sanjay007",
-  database: "booklibary"
+  user: "ug8zuliu61d7a9c1",
+  host: "bkpxzzwfdhe80vljvx9c-mysql.services.clever-cloud.com",
+  password: "AW69uOPdNU6eW6bMONOw",
+  database: "bkpxzzwfdhe80vljvx9c"
 });
 
 // ? fectch data -register
