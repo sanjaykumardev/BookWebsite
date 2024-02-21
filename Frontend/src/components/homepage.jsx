@@ -97,7 +97,6 @@ function Homepage() {
                     <p>{result.subject}</p>
                     <p>{result.publishDate}</p>
                   </p>
-
                 </div>
               ))}
             </div>
@@ -106,8 +105,6 @@ function Homepage() {
               Reload
              </buttom>
             </div>
-
-          
           </div>
         </div>
       </div>
