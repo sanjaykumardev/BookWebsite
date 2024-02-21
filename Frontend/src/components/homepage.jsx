@@ -89,7 +89,7 @@ function Homepage() {
                 <button className='text-black font-bold p-2 border-2 w-[25%] hover:bg-black hover:text-white bg-yellow-500 ' onClick={handleSearch}>Search</button>
               </div>
             </div>
-            <div className="md:max-h-[60vh] text-black overflow-y-auto">
+            <div className="md:max-h-[60vh] text-black  overflow-y-auto">
               {searchResults.map((result, index) => (
                 <div key={index} className="p-2 border-b bg-gray-300  border-gray-300">
                   <p>{result.title}
@@ -102,8 +102,12 @@ function Homepage() {
               ))}
             </div>
             <div className="flex  p-10">
-              <p> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+             <buttom className= "text-black text-center text-lg font-bold border-1 mt-20 rounded w-[45%] p-3 ml-40 hover:bg-black hover:text-white bg-white" >
+              Reload
+             </buttom>
             </div>
+
+          
           </div>
         </div>
       </div>
