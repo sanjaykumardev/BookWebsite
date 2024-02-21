@@ -92,7 +92,16 @@ app.post('/login', async (req, res) => {
 });
 
 //? BOOK 
+app.post('/api/books', (req, res) => {
+  const { books } = req.body;
 
+  // Process the received data as needed
+  console.log('Received mockBooks data:', books);
+
+  // Optionally, you can save the data to a database or perform any other operation
+
+  res.status(200).json({ message: 'MockBooks data received successfully' });
+});
 
 
 //? to database
