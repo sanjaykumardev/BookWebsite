@@ -1,22 +1,23 @@
 // import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
+import axios from 'axios';
 
 const mockBooks = [
-  { title: 'Hellboy', author: 'Author 1', subject: 'Subject 1', publishDate: '2022-01-01' },
-  { title: 'playboy', author: 'Author 2', subject: 'Subject 2', publishDate: '2022-02-01' },
-  { title: 'mick', author: 'Author 3', subject: 'Subject 3', publishDate: '2022-03-01' },
-  { title: 'Hellboy', author: 'Author 1', subject: 'Subject 1', publishDate: '2022-01-01' },
-  { title: 'playboy', author: 'Author 2', subject: 'Subject 2', publishDate: '2022-02-01' },
-  { title: 'mick', author: 'Author 3', subject: 'Subject 3', publishDate: '2022-03-01' },
-  { title: 'Hellboy', author: 'Author 1', subject: 'Subject 1', publishDate: '2022-01-01' },
-  { title: 'playboy', author: 'Author 2', subject: 'Subject 2', publishDate: '2022-02-01' },
-  { title: 'mick', author: 'Author 3', subject: 'Subject 3', publishDate: '2022-03-01' },
-  { title: 'Hellboy', author: 'Author 1', subject: 'Subject 1', publishDate: '2022-01-01' },
-  { title: 'playboy', author: 'Author 2', subject: 'Subject 2', publishDate: '2022-02-01' },
-  { title: 'mick', author: 'Author 3', subject: 'Subject 3', publishDate: '2022-03-01' },
- 
+  { title: 'Hellboy Chronicles', author: 'Author 1', subject: 'Subject 1', publishDate: '2022-01-01' },
+  { title: 'Playboy Adventures', author: 'Author 2', subject: 'Subject 2', publishDate: '2022-02-01' },
+  { title: 'Micks Memoirs', author: 'Author 3', subject: 'Subject 3', publishDate: '2022-03-01' },
+  { title: 'Hellboy Returns', author: 'Author 1', subject: 'Subject 1', publishDate: '2022-01-01' },
+  { title: 'Playboy Unleashed', author: 'Author 2', subject: 'Subject 2', publishDate: '2022-02-01' },
+  { title: 'Micks Journey', author: 'Author 3', subject: 'Subject 3', publishDate: '2022-03-01' },
+  { title: 'Hellboy: The Untold Story', author: 'Author 1', subject: 'Subject 1', publishDate: '2022-01-01' },
+  { title: 'Playboy Mysteries', author: 'Author 2', subject: 'Subject 2', publishDate: '2022-02-01' },
+  { title: 'Micks Quest', author: 'Author 3', subject: 'Subject 3', publishDate: '2022-03-01' },
+  { title: 'Hellboy Revisited', author: 'Author 1', subject: 'Subject 1', publishDate: '2022-01-01' },
+  { title: 'Playboy Escapades', author: 'Author 2', subject: 'Subject 2', publishDate: '2022-02-01' },
+  { title: 'Micks Odyssey', author: 'Author 3', subject: 'Subject 3', publishDate: '2022-03-01' },
 ];
+
 
 function Homepage() {
   const [searchResults, setSearchResults] = useState([]);
@@ -34,6 +35,24 @@ function Homepage() {
     console.log(results);
   };
 
+
+
+    // Function to send mockBooks data to the backend
+    const sendMockBooksToBackend = () => {
+      axios.post('/books', { books: mockBooks }) // Send a POST request to backend endpoint with mockBooks data in the request body
+        .then(response => {
+          console.log('MockBooks sent to backend:', response.data);
+        })
+        .catch(error => {
+          console.error('Error sending mockBooks to backend:', error);
+        });
+    };
+  
+    // Call the function to send mockBooks data when the component mounts
+    useEffect(() => {
+      sendMockBooksToBackend();
+    }, []);
+  
   return (
     <div>
       <Navbar />
