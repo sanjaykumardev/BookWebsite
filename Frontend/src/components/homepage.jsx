@@ -1,7 +1,7 @@
-// import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+
 
 const mockBooks = [
   { title: 'Hellboy Chronicles', author: 'Author 1', subject: 'Subject 1', publishdate: '2022-01-01' },
@@ -86,7 +86,9 @@ function Homepage() {
                   <option value="description">Subject</option>
                   <option value="description">PublishDate</option>
                 </select>
-                <button className='text-black font-bold p-2 border-2 w-[25%] hover:bg-black hover:text-white bg-yellow-500 ' onClick={handleSearch}>Search</button>
+                <button className='text-black font-bold p-2 border-2 w-[25%] hover:bg-black hover:text-white bg-yellow-500 ' onClick={handleSearch}>
+                  Search
+                </button>
               </div>
             </div>
             <div className="md:max-h-[60vh] text-black  overflow-y-auto">
@@ -99,11 +101,6 @@ function Homepage() {
                   </p>
                 </div>
               ))}
-            </div>
-            <div className="flex  p-10">
-             <buttom className= "text-black text-center text-lg font-bold border-1 mt-20 rounded w-[45%] p-3 ml-40 hover:bg-black hover:text-white bg-white" >
-              Reload
-             </buttom>
             </div>
           </div>
         </div>
