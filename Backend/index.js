@@ -95,13 +95,22 @@ app.post('/login', async (req, res) => {
 app.post('/api/books', (req, res) => {
   const { books } = req.body;
 
-  // Process the received data as needed
-  console.log('Received mockBooks data:', books);
-
-  // Optionally, you can save the data to a database or perform any other operation
-
-  res.status(200).json({ message: 'MockBooks data received successfully' });
+  // MySQL query to insert mockBooks data into a 'books' table
+  const query = 'SELECT * FROM book (title, author, subject, publishDate) VALUES ?';
+  // Extracting values from mockBooks array to insert into MySQL database
+  const values = books.map(book => [book.title, book.author, book.subject, book.publishDate]);
+  // Execute the SQL query
+  connection.query(query, [values], (err, results) => {
+    if (err) {
+      console.error('Error inserting mockBooks data into MySQL:', err);
+      res.status(500).json({ error: 'Error inserting mockBooks data into MySQL' });
+      return;
+    }
+    console.log('MockBooks data inserted into MySQL');
+    res.status(200).json({ message: 'MockBooks data inserted into MySQL successfully' });
+  });
 });
+
 
 
 //? to database
