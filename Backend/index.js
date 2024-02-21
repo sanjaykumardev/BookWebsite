@@ -17,10 +17,10 @@ app.use(cors({ origin: ["http://localhost:5173"] }));
 
 // connection for database
 const connection = mysql.createConnection({
-  user: "ug8zuliu61d7a9c1",
-  host: "bkpxzzwfdhe80vljvx9c-mysql.services.clever-cloud.com",
-  password: "AW69uOPdNU6eW6bMONOw",
-  database: "bkpxzzwfdhe80vljvx9c"
+  user: "root",
+  host: "localhost",
+  password: "sanjay007",
+  database: "booklibary"
 });
 
 // ? fectch data -register
@@ -91,13 +91,13 @@ app.post('/login', async (req, res) => {
   }
 });
 //? BOOK 
-app.post('/api/books', (req, res) => {
+app.post('/books', (req, res) => {
   const { books } = req.body;
 
   // MySQL query to insert mockBooks data into a 'books' table
-  const query = 'SELECT * FROM book (title, author, subject, publishDate) VALUES ?';
+  const query = 'SELECT * FROM book (title, author, subject, publishdate) VALUES ?';
   // Extracting values from mockBooks array to insert into MySQL database
-  const values = books.map(book => [book.title, book.author, book.subject, book.publishDate]);
+  const values = books.map(book => [book.title, book.author, book.subject, book.publishdate]);
   // Execute the SQL query
   connection.query(query, [values], (err, results) => {
     if (err) {

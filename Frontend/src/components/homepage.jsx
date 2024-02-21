@@ -4,18 +4,18 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const mockBooks = [
-  { title: 'Hellboy Chronicles', author: 'Author 1', subject: 'Subject 1', publishDate: '2022-01-01' },
-  { title: 'Playboy Adventures', author: 'Author 2', subject: 'Subject 2', publishDate: '2022-02-01' },
-  { title: 'Micks Memoirs', author: 'Author 3', subject: 'Subject 3', publishDate: '2022-03-01' },
-  { title: 'Hellboy Returns', author: 'Author 1', subject: 'Subject 1', publishDate: '2022-01-01' },
-  { title: 'Playboy Unleashed', author: 'Author 2', subject: 'Subject 2', publishDate: '2022-02-01' },
-  { title: 'Micks Journey', author: 'Author 3', subject: 'Subject 3', publishDate: '2022-03-01' },
-  { title: 'Hellboy: The Untold Story', author: 'Author 1', subject: 'Subject 1', publishDate: '2022-01-01' },
-  { title: 'Playboy Mysteries', author: 'Author 2', subject: 'Subject 2', publishDate: '2022-02-01' },
-  { title: 'Micks Quest', author: 'Author 3', subject: 'Subject 3', publishDate: '2022-03-01' },
-  { title: 'Hellboy Revisited', author: 'Author 1', subject: 'Subject 1', publishDate: '2022-01-01' },
-  { title: 'Playboy Escapades', author: 'Author 2', subject: 'Subject 2', publishDate: '2022-02-01' },
-  { title: 'Micks Odyssey', author: 'Author 3', subject: 'Subject 3', publishDate: '2022-03-01' },
+  { title: 'Hellboy Chronicles', author: 'Author 1', subject: 'Subject 1', publishdate: '2022-01-01' },
+  { title: 'Playboy Adventures', author: 'Author 2', subject: 'Subject 2', publishdate: '2022-02-01' },
+  { title: 'Micks Memoirs', author: 'Author 3', subject: 'Subject 3', publishdate: '2022-03-01' },
+  { title: 'Hellboy Returns', author: 'Author 1', subject: 'Subject 1', publishdate: '2022-01-01' },
+  { title: 'Playboy Unleashed', author: 'Author 2', subject: 'Subject 2', publishdate: '2022-02-01' },
+  { title: 'Micks Journey', author: 'Author 3', subject: 'Subject 3', publishdate: '2022-03-01' },
+  { title: 'Hellboy: The Untold Story', author: 'Author 1', subject: 'Subject 1', publishdate: '2022-01-01' },
+  { title: 'Playboy Mysteries', author: 'Author 2', subject: 'Subject 2', publishdate: '2022-02-01' },
+  { title: 'Micks Quest', author: 'Author 3', subject: 'Subject 3', publishdate: '2022-03-01' },
+  { title: 'Hellboy Revisited', author: 'Author 1', subject: 'Subject 1', publishdate: '2022-01-01' },
+  { title: 'Playboy Escapades', author: 'Author 2', subject: 'Subject 2', publishdate: '2022-02-01' },
+  { title: 'Micks Odyssey', author: 'Author 3', subject: 'Subject 3', publishdate: '2022-03-01' },
 ];
 
 
@@ -28,14 +28,12 @@ function Homepage() {
       book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       book.author.toLowerCase().includes(searchTerm.toLowerCase()) ||
       book.subject.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      book.publishDate.toLowerCase().includes(searchTerm.toLowerCase())
+      book.publishdate.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     setSearchResults(results);
     console.log(results);
   };
-
-
 
   // Function to send mockBooks data to the backend
   const sendMockBooksToBackend = () => {
@@ -47,7 +45,6 @@ function Homepage() {
         console.error('Error sending mockBooks to backend:', error);
       });
   };
-
   // Call the function to send mockBooks data when the component mounts
   useEffect(() => {
     sendMockBooksToBackend();
@@ -64,8 +61,11 @@ function Homepage() {
             </div>
           </div>
           <div className="md:w-1/2 md:ml-60 ">
-            <h2 className="p-5 font-bold md:text-6xl text-3xl text-black md:mt-10 md:text-center">
-              WELCOME TO BOOK-STORE
+            <h2 className=" font-bold md:text-6xl text-3xl text-white md:mt-10 md:text-center">
+              WELCOME TO
+            </h2>
+            <h2 className=" md:ml-40 font-bold md:text-6xl text-3xl text-white md:mt-3 md:text-center" >
+              BOOK-STORE
             </h2>
             <div className='md:ml-10 md:mt-10'>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
