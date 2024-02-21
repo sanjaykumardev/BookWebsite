@@ -19,10 +19,10 @@ const Register = () => {
     e.preventDefault();
     console.log(e);
     try {
-      const res = await Axios.post("http://localhost:3000/api/register", {
+      const res = await Axios.post("http://localhost:3000/register", {
         username,
-        email,
         password,
+        email,
       });
       console.log('Username:', username);
       console.log('Email:', email);

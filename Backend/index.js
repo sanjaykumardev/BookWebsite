@@ -33,7 +33,7 @@ app.post('/register', async (req, res) => {
 
     // Insert user data into the database
     connection.query(
-      'INSERT INTO userInfo (username, password, email) VALUES (?, ?, ?)',
+      'INSERT INTO useinfo (username, password, email) VALUES (?, ?, ?)',
       [username, hashedPassword, email],
       (err, result) => {
         if (err) {
@@ -54,12 +54,12 @@ app.post('/register', async (req, res) => {
 
 //? login
 app.post('/login', async (req, res) => {
-  const { password, email } = req.body;
+  const { email, password } = req.body;
 
   try {
     // Query the database to retrieve user data
     connection.query(
-      'SELECT * FROM userInfo WHERE email = ?', [email],
+      'SELECT * FROM useinfo WHERE email = ?', [email],
       async (err, result) => {
         if (err) {
           console.error('Error querying data from MySQL:', err);
@@ -74,7 +74,8 @@ app.post('/login', async (req, res) => {
               const token = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET, {
                 expiresIn: '1h'
               });
-              res.json({ message: 'Login successful', token });
+              res.json({ message: 'Login successful', token, email: user.email });
+              console.log('Data retrieved from MySQL successfully:', user);
             } else {
               res.status(401).json({ error: 'Invalid username or password' });
             }
@@ -84,13 +85,11 @@ app.post('/login', async (req, res) => {
         }
       }
     );
-    
   } catch (error) {
     console.error('Error during login:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
-
 //? BOOK 
 app.post('/api/books', (req, res) => {
   const { books } = req.body;
