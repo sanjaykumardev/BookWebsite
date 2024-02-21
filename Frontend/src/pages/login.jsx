@@ -39,7 +39,7 @@ function login() {
       <Navbar />
       <div className='w-full flex justify-center items-center  h-[80vh]'>
         <div className='flex flex-coljustify-center items-center space-y-2 w-[80%] md:w-[25%] '>
-          <div className=' bg-yellow-300  shadow-lg bg-origin-border'>
+          <div className='bg-yellow-300  shadow-lg bg-origin-border'>
             <h1 className=" font-bold mt-7 mb-4 md:mb-7 text-2xl text-center md:text-2xl gap-3">Login To Your Account</h1>
             <form onSubmit={handleSubmit} >
               <h3 className='md:ml-20 mb-3 md:mb-3 text-lg font-bold'>Email</h3>

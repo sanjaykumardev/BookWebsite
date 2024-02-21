@@ -35,7 +35,7 @@ const Navbar = () => {
 
         <div className="flex space-x-4 ml-20">
           {isLoggedIn ? (
-            <button onClick={handleLogout} className="bg-red-500 shadow-lg shadow-red-500/50 text-white px-4 py-2 rounded">
+            <button onClick={handleLogout} className="bg-white shadow-lg shadow-balck-500/50 text-black px-4 py-2 rounded">
               Logout
               <Link to='/'></Link> </button>
           ) : (
