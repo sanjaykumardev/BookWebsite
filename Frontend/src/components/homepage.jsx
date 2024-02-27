@@ -15,6 +15,66 @@ const mockBooks = [
   { title: 'Hellboy Revisited', author: 'Author 10', subject: 'Subject 1', publishdate: '2022-07-11' },
   { title: 'Playboy Escapades', author: 'Author 11', subject: 'Subject 2', publishdate: '2015-02-01' },
   { title: 'Micks Odyssey', author: 'Author 12', subject: 'Subject 3', publishdate: '2024-03-01' },
+  { title: 'Hellboy Chronicles', author: 'Author 1', subject: 'Subject 1', publishdate: '2017-01-01' },
+  { title: 'Playboy Adventures', author: 'Author 2', subject: 'Subject 2', publishdate: '2018-02-01' },
+  { title: 'Micks Memoirs', author: 'Author 3', subject: 'Subject 3', publishdate: '2022-03-01' },
+  { title: 'Hellboy Returns', author: 'Author 4', subject: 'Subject 1', publishdate: '2022-01-01' },
+  { title: 'Playboy Unleashed', author: 'Author 5', subject: 'Subject 2', publishdate: '2023-02-01' },
+  { title: 'Micks Journey', author: 'Author 6', subject: 'Subject 3', publishdate: '2022-03-01' },
+  { title: 'Hellboy: The Untold Story', author: 'Author 7', subject: 'Subject 1', publishdate: '2022-01-01' },
+  { title: 'Playboy Mysteries', author: 'Author 8', subject: 'Subject 2', publishdate: '2025-02-01' },
+  { title: 'Micks Quest', author: 'Author 9', subject: 'Subject 3', publishdate: '2022-03-01' },
+  { title: 'Hellboy Revisited', author: 'Author 10', subject: 'Subject 1', publishdate: '2022-07-11' },
+  { title: 'Playboy Escapades', author: 'Author 11', subject: 'Subject 2', publishdate: '2015-02-01' },
+  { title: 'Micks Odyssey', author: 'Author 12', subject: 'Subject 3', publishdate: '2024-03-01' },
+  { title: 'Hellboy Chronicles', author: 'Author 1', subject: 'Subject 1', publishdate: '2017-01-01' },
+  { title: 'Playboy Adventures', author: 'Author 2', subject: 'Subject 2', publishdate: '2018-02-01' },
+  { title: 'Micks Memoirs', author: 'Author 3', subject: 'Subject 3', publishdate: '2022-03-01' },
+  { title: 'Hellboy Returns', author: 'Author 4', subject: 'Subject 1', publishdate: '2022-01-01' },
+  { title: 'Playboy Unleashed', author: 'Author 5', subject: 'Subject 2', publishdate: '2023-02-01' },
+  { title: 'Micks Journey', author: 'Author 6', subject: 'Subject 3', publishdate: '2022-03-01' },
+  { title: 'Hellboy: The Untold Story', author: 'Author 7', subject: 'Subject 1', publishdate: '2022-01-01' },
+  { title: 'Playboy Mysteries', author: 'Author 8', subject: 'Subject 2', publishdate: '2025-02-01' },
+  { title: 'Micks Quest', author: 'Author 9', subject: 'Subject 3', publishdate: '2022-03-01' },
+  { title: 'Hellboy Revisited', author: 'Author 10', subject: 'Subject 1', publishdate: '2022-07-11' },
+  { title: 'Playboy Escapades', author: 'Author 11', subject: 'Subject 2', publishdate: '2015-02-01' },
+  { title: 'Micks Odyssey', author: 'Author 12', subject: 'Subject 3', publishdate: '2024-03-01' },
+  { title: 'Hellboy Chronicles', author: 'Author 1', subject: 'Subject 1', publishdate: '2017-01-01' },
+  { title: 'Playboy Adventures', author: 'Author 2', subject: 'Subject 2', publishdate: '2018-02-01' },
+  { title: 'Micks Memoirs', author: 'Author 3', subject: 'Subject 3', publishdate: '2022-03-01' },
+  { title: 'Hellboy Returns', author: 'Author 4', subject: 'Subject 1', publishdate: '2022-01-01' },
+  { title: 'Playboy Unleashed', author: 'Author 5', subject: 'Subject 2', publishdate: '2023-02-01' },
+  { title: 'Micks Journey', author: 'Author 6', subject: 'Subject 3', publishdate: '2022-03-01' },
+  { title: 'Hellboy: The Untold Story', author: 'Author 7', subject: 'Subject 1', publishdate: '2022-01-01' },
+  { title: 'Playboy Mysteries', author: 'Author 8', subject: 'Subject 2', publishdate: '2025-02-01' },
+  { title: 'Micks Quest', author: 'Author 9', subject: 'Subject 3', publishdate: '2022-03-01' },
+  { title: 'Hellboy Revisited', author: 'Author 10', subject: 'Subject 1', publishdate: '2022-07-11' },
+  { title: 'Playboy Escapades', author: 'Author 11', subject: 'Subject 2', publishdate: '2015-02-01' },
+  { title: 'Micks Odyssey', author: 'Author 12', subject: 'Subject 3', publishdate: '2024-03-01' },
+  { title: 'Hellboy Chronicles', author: 'Author 1', subject: 'Subject 1', publishdate: '2017-01-01' },
+  { title: 'Playboy Adventures', author: 'Author 2', subject: 'Subject 2', publishdate: '2018-02-01' },
+  { title: 'Micks Memoirs', author: 'Author 3', subject: 'Subject 3', publishdate: '2022-03-01' },
+  { title: 'Hellboy Returns', author: 'Author 4', subject: 'Subject 1', publishdate: '2022-01-01' },
+  { title: 'Playboy Unleashed', author: 'Author 5', subject: 'Subject 2', publishdate: '2023-02-01' },
+  { title: 'Micks Journey', author: 'Author 6', subject: 'Subject 3', publishdate: '2022-03-01' },
+  { title: 'Hellboy: The Untold Story', author: 'Author 7', subject: 'Subject 1', publishdate: '2022-01-01' },
+  { title: 'Playboy Mysteries', author: 'Author 8', subject: 'Subject 2', publishdate: '2025-02-01' },
+  { title: 'Micks Quest', author: 'Author 9', subject: 'Subject 3', publishdate: '2022-03-01' },
+  { title: 'Hellboy Revisited', author: 'Author 10', subject: 'Subject 1', publishdate: '2022-07-11' },
+  { title: 'Playboy Escapades', author: 'Author 11', subject: 'Subject 2', publishdate: '2015-02-01' },
+  { title: 'Micks Odyssey', author: 'Author 12', subject: 'Subject 3', publishdate: '2024-03-01' },
+  { title: 'Hellboy Chronicles', author: 'Author 1', subject: 'Subject 1', publishdate: '2017-01-01' },
+  { title: 'Playboy Adventures', author: 'Author 2', subject: 'Subject 2', publishdate: '2018-02-01' },
+  { title: 'Micks Memoirs', author: 'Author 3', subject: 'Subject 3', publishdate: '2022-03-01' },
+  { title: 'Hellboy Returns', author: 'Author 4', subject: 'Subject 1', publishdate: '2022-01-01' },
+  { title: 'Playboy Unleashed', author: 'Author 5', subject: 'Subject 2', publishdate: '2023-02-01' },
+  { title: 'Micks Journey', author: 'Author 6', subject: 'Subject 3', publishdate: '2022-03-01' },
+  { title: 'Hellboy: The Untold Story', author: 'Author 7', subject: 'Subject 1', publishdate: '2022-01-01' },
+  { title: 'Playboy Mysteries', author: 'Author 8', subject: 'Subject 2', publishdate: '2025-02-01' },
+  { title: 'Micks Quest', author: 'Author 9', subject: 'Subject 3', publishdate: '2022-03-01' },
+  { title: 'Hellboy Revisited', author: 'Author 10', subject: 'Subject 1', publishdate: '2022-07-11' },
+  { title: 'Playboy Escapades', author: 'Author 11', subject: 'Subject 2', publishdate: '2015-02-01' },
+  { title: 'Micks Odyssey', author: 'Author 12', subject: 'Subject 3', publishdate: '2024-03-01' },
 ];
 
 function Homepage() {
@@ -30,6 +90,7 @@ function Homepage() {
     );
     setSearchResults(results);
     console.log(results);
+
   };
 
   // Function to send mockBooks data to the backend
@@ -93,7 +154,7 @@ function Homepage() {
         </div>
       </div>
       <div className="md:max-h-[60vh] p-40 text-black ">
-        <h3 className='text-5xl font-bold mb-10'> List Of Book </h3>
+        <h3 className='text-5xl font-bold mb-10 text-center'> List Of Book </h3>
         <table className="w-full  border border-green-800  overflow-y-auto">
           <thead>
             <tr className="bg-gray-300">
