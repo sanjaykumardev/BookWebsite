@@ -90,14 +90,28 @@ app.post('/login', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+app.get('/book',(req,res)=>{
+  connection.query(" SELECT * FROM  book", (err, res)=>{
+    if(err){
+      console.log(err);
+    }
+    else{
+      res.json(res);
+      console.log(res);
+    }
+  });
+});
+
+
 //? BOOK 
 app.post('/books', (req, res) => {
-  const { books } = req.body;
+  const { mockBooks } = req.body;
 
   // MySQL query to insert mockBooks data into a 'books' table
-  const query = 'SELECT * FROM book (title, author, subject, publishdate) VALUES ?';
+  const query = 'INSERT INTO  book (title, author, subject, publishdate) VALUES (?,?,?,?)';
   // Extracting values from mockBooks array to insert into MySQL database
-  const values = books.map(book => [book.title, book.author, book.subject, book.publishdate]);
+  const values = mockBooks.map(mockBooks => [mockBooks.title, mockBooks.author, mockBooks.subject, mockBooks.publishdate]);
   // Execute the SQL query
   connection.query(query, [values], (err, results) => {
     if (err) {
