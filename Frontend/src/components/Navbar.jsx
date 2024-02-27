@@ -18,7 +18,7 @@ const Navbar = () => {
           Book-Store
         </Link>
 
-        <div className="hidden md:flex space-x-12 ml-20">
+        <div className="hidden md:flex  text-lg space-x-20 ml-28">
           <Link to="/" className="text-black font-bold">
             Home
           </Link>
@@ -35,18 +35,18 @@ const Navbar = () => {
 
         <div className="flex space-x-4 ml-20">
           {isLoggedIn ? (
-            <button onClick={handleLogout} className="bg-white shadow-lg shadow-balck-500/50 text-black px-4 py-2 rounded">
+            <button onClick={handleLogout} className="bg-white shadow-md shadow-balck-500/50 text-black px-4 py-2 rounded">
               Logout
               <Link to='/'></Link> </button>
           ) : (
             <>
               <Link to="/login">
-                <button className="bg-white shadow-lg shadow-black-500/50 ml-10 font-bold text-black px-4 py-2 rounded">
+                <button className="bg-white shadow-md shadow-black-500/50 ml-10 font-bold text-black px-4 py-2 rounded">
                   Login
                 </button>
               </Link>
               <Link to="/register">
-                <button className="bg-white shadow-lg shadow-black-500/50 font-bold text-black px-4 py-2 rounded">
+                <button className="bg-white shadow-md shadow-black-500/50 font-bold text-black px-4 py-2 rounded">
                   Register
                 </button>
               </Link>

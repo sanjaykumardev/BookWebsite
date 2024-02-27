@@ -91,36 +91,33 @@ app.post('/login', async (req, res) => {
   }
 });
 
-app.get('/book',(req,res)=>{
-  connection.query(" SELECT * FROM  book", (err, res)=>{
-    if(err){
-      console.log(err);
-    }
-    else{
-      res.json(res);
-      console.log(res);
-    }
-  });
-});
+// app.get('/book',(req,res)=>{
+//   connection.query(" SELECT * FROM  book", (err, res)=>{
+//     if(err){
+//       console.log(err);
+//     }
+//     else{
+//       res.json(res);
+//       console.log(res);
+//     }
+//   });
+// });
 
 
 //? BOOK 
-app.post('/books', (req, res) => {
-  const { books } = req.body;
+app.get('/books', (req, res) => {
+  // MySQL query to select all books from the 'book' table
+  const query = 'SELECT * FROM book';
 
-  // MySQL query to insert mockBooks data into a 'books' table
-  const query = 'INSERT INTO  book (title, author, subject, publishdate) VALUES (?,?,?,?)';
-  // Extracting values from mockBooks array to insert into MySQL database
-  const values = books.map(books => [books.title, books.author, books.subject, books.publishdate]);
   // Execute the SQL query
-  connection.query(query, [values], (err, results) => {
+  connection.query(query, (err, results) => {
     if (err) {
-      console.error('Error inserting mockBooks data into MySQL:', err);
-      res.status(500).json({ error: 'Error inserting mockBooks data into MySQL' });
+      console.error('Error fetching books data from MySQL:', err);
+      res.status(500).json({ error: 'Error fetching books data from MySQL' });
       return;
     }
-    console.log('MockBooks data inserted into MySQL' ,results);
-    res.status(200).json({ message: 'MockBooks data inserted into MySQL successfully' });
+    console.log('Books data fetched from MySQL:', results);
+    res.status(200).json(results); // Send the fetched books data to the frontend
   });
 });
 
