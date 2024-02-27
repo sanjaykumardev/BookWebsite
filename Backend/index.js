@@ -106,12 +106,12 @@ app.get('/book',(req,res)=>{
 
 //? BOOK 
 app.post('/books', (req, res) => {
-  const { mockBooks } = req.body;
+  const { books } = req.body;
 
   // MySQL query to insert mockBooks data into a 'books' table
   const query = 'INSERT INTO  book (title, author, subject, publishdate) VALUES (?,?,?,?)';
   // Extracting values from mockBooks array to insert into MySQL database
-  const values = mockBooks.map(mockBooks => [mockBooks.title, mockBooks.author, mockBooks.subject, mockBooks.publishdate]);
+  const values = books.map(books => [books.title, books.author, books.subject, books.publishdate]);
   // Execute the SQL query
   connection.query(query, [values], (err, results) => {
     if (err) {
@@ -119,7 +119,7 @@ app.post('/books', (req, res) => {
       res.status(500).json({ error: 'Error inserting mockBooks data into MySQL' });
       return;
     }
-    console.log('MockBooks data inserted into MySQL');
+    console.log('MockBooks data inserted into MySQL' ,results);
     res.status(200).json({ message: 'MockBooks data inserted into MySQL successfully' });
   });
 });
