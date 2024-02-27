@@ -1,23 +1,21 @@
+import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
-import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-
 const mockBooks = [
-  { title: 'Hellboy Chronicles', author: 'Author 1', subject: 'Subject 1', publishdate: '2022-01-01' },
-  { title: 'Playboy Adventures', author: 'Author 2', subject: 'Subject 2', publishdate: '2022-02-01' },
+  { title: 'Hellboy Chronicles', author: 'Author 1', subject: 'Subject 1', publishdate: '2017-01-01' },
+  { title: 'Playboy Adventures', author: 'Author 2', subject: 'Subject 2', publishdate: '2018-02-01' },
   { title: 'Micks Memoirs', author: 'Author 3', subject: 'Subject 3', publishdate: '2022-03-01' },
-  { title: 'Hellboy Returns', author: 'Author 1', subject: 'Subject 1', publishdate: '2022-01-01' },
-  { title: 'Playboy Unleashed', author: 'Author 2', subject: 'Subject 2', publishdate: '2022-02-01' },
-  { title: 'Micks Journey', author: 'Author 3', subject: 'Subject 3', publishdate: '2022-03-01' },
-  { title: 'Hellboy: The Untold Story', author: 'Author 1', subject: 'Subject 1', publishdate: '2022-01-01' },
-  { title: 'Playboy Mysteries', author: 'Author 2', subject: 'Subject 2', publishdate: '2022-02-01' },
-  { title: 'Micks Quest', author: 'Author 3', subject: 'Subject 3', publishdate: '2022-03-01' },
-  { title: 'Hellboy Revisited', author: 'Author 1', subject: 'Subject 1', publishdate: '2022-01-01' },
-  { title: 'Playboy Escapades', author: 'Author 2', subject: 'Subject 2', publishdate: '2022-02-01' },
-  { title: 'Micks Odyssey', author: 'Author 3', subject: 'Subject 3', publishdate: '2022-03-01' },
+  { title: 'Hellboy Returns', author: 'Author 4', subject: 'Subject 1', publishdate: '2022-01-01' },
+  { title: 'Playboy Unleashed', author: 'Author 5', subject: 'Subject 2', publishdate: '2023-02-01' },
+  { title: 'Micks Journey', author: 'Author 6', subject: 'Subject 3', publishdate: '2022-03-01' },
+  { title: 'Hellboy: The Untold Story', author: 'Author 7', subject: 'Subject 1', publishdate: '2022-01-01' },
+  { title: 'Playboy Mysteries', author: 'Author 8', subject: 'Subject 2', publishdate: '2025-02-01' },
+  { title: 'Micks Quest', author: 'Author 9', subject: 'Subject 3', publishdate: '2022-03-01' },
+  { title: 'Hellboy Revisited', author: 'Author 10', subject: 'Subject 1', publishdate: '2022-07-11' },
+  { title: 'Playboy Escapades', author: 'Author 11', subject: 'Subject 2', publishdate: '2015-02-01' },
+  { title: 'Micks Odyssey', author: 'Author 12', subject: 'Subject 3', publishdate: '2024-03-01' },
 ];
-
 
 function Homepage() {
   const [searchResults, setSearchResults] = useState([]);
@@ -30,7 +28,6 @@ function Homepage() {
       book.subject.toLowerCase().includes(searchTerm.toLowerCase()) ||
       book.publishdate.toLowerCase().includes(searchTerm.toLowerCase())
     );
-
     setSearchResults(results);
     console.log(results);
   };
@@ -45,6 +42,7 @@ function Homepage() {
         console.error('Error sending mockBooks to backend:', error);
       });
   };
+
   // Call the function to send mockBooks data when the component mounts
   useEffect(() => {
     sendMockBooksToBackend();
@@ -81,31 +79,44 @@ function Homepage() {
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className='p-2 w-[50%]    text-black  ' />
                 <select className='p-2 w-90  bg-gray-600 py-2 text-white border-2  ' id="searchType">
-                  <option className='' value="name">Title</option>
-                  <option value="category">Author</option>
-                  <option value="description">Subject</option>
-                  <option value="description">PublishDate</option>
+                  <option className='' value="title">Title</option>
+                  <option value="author">Author</option>
+                  <option value="subject">Subject</option>
+                  <option value="publishdate">PublishDate</option>
                 </select>
                 <button className='text-black font-bold p-2 border-2 w-[25%] hover:bg-black hover:text-white bg-yellow-500 ' onClick={handleSearch}>
                   Search
                 </button>
               </div>
             </div>
-            <div className="md:max-h-[60vh] text-black  overflow-y-auto">
-              {searchResults.map((result, index) => (
-                <div key={index} className="p-2 border-b bg-gray-300  border-gray-300">
-                  <p>{result.title}
-                    <p>{result.author}</p>
-                    <p>{result.subject}</p>
-                    <p>{result.publishDate}</p>
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>
+      <div className="md:max-h-[60vh] p-40 text-black ">
+        <h3 className='text-5xl font-bold mb-10'> List Of Book </h3>
+        <table className="w-full  border border-green-800  overflow-y-auto">
+          <thead>
+            <tr className="bg-gray-300">
+              <th className="border border-black px-4 py-2">Title</th>
+              <th className="border border-black px-4 py-2">Author</th>
+              <th className="border border-black px-4 py-2">Subject</th>
+              <th className="border border-black px-4 py-2">Publish Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {searchResults.map((result, index) => (
+              <tr key={index} className="bg-gray-200">
+                <td className="border border-black px-4 py-2">{result.title}</td>
+                <td className="border border-black px-4 py-2">{result.author}</td>
+                <td className="border border-black px-4 py-2">{result.subject}</td>
+                <td className="border border-black px-4 py-2">{result.publishdate}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
+
   );
 }
 
